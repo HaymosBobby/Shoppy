@@ -6,7 +6,6 @@ import {
   type ReactNode,
 } from "react";
 import type { Cart, Product } from "../types";
-// import { Cart, CartItem, Product } from "../types";
 
 interface CartContextType {
   cart: Cart;
