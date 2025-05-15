@@ -22,7 +22,7 @@ A modern, responsive shopping cart application built with React, TypeScript, and
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/HaymosBobby/Shoppy.git
 cd shoppy
 ```
 
