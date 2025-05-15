@@ -1,10 +1,12 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function ShoppingCart() {
   const { cart, removeFromCart, updateQuantity, applyCoupon, getTotal } =
     useCart();
   const [couponInput, setCouponInput] = useState("");
+  const navigate = useNavigate();
 
   const handleCouponSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,6 +74,14 @@ export function ShoppingCart() {
 
       <div className="cart-total">
         <h3>Total: ${getTotal().toFixed(2)}</h3>
+        {cart.items.length > 0 && (
+          <button
+            onClick={() => navigate("/checkout")}
+            className="checkout-button"
+          >
+            Proceed to Checkout
+          </button>
+        )}
       </div>
     </div>
   );
