@@ -5,7 +5,8 @@ export const products: Product[] = [
     id: "1",
     name: "Wireless Headphones",
     price: 99.99,
-    image: "https://via.placeholder.com/200x200?text=Headphones",
+    image:
+      "https://unsplash.com/photos/PDX_a_82obo/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8aGVhZHBob25lfGVufDB8fHx8MTc0NzE5NDMxNXww&force=true",
     description: "High-quality wireless headphones with noise cancellation",
   },
   {

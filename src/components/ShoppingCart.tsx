@@ -1,16 +1,30 @@
 import { useCart } from "../context/CartContext";
-import { useState } from "react";
+import { useNotification } from "../context/NotificationContext";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export function ShoppingCart() {
   const { cart, removeFromCart, updateQuantity, applyCoupon, getTotal } =
     useCart();
+  const { notify } = useNotification();
   const [couponInput, setCouponInput] = useState("");
   const navigate = useNavigate();
 
   const handleCouponSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    applyCoupon(couponInput);
+    if (couponInput.trim() === "") {
+      notify("Please enter a coupon code", { type: "error" });
+      return;
+    }
+
+    if (couponInput === "WEB3BRIDGECOHORTx") {
+      applyCoupon(couponInput);
+      notify("Coupon applied successfully!");
+      setCouponInput(""); // Clear input after successful application
+    } else {
+      notify("Invalid coupon code. Please try again.", { type: "error" });
+      setCouponInput(""); // Clear input after failed attempt
+    }
   };
 
   if (cart.items.length === 0) {
