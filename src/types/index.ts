@@ -5,3 +5,14 @@ export interface Product {
   image: string;
   description: string;
 }
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
+export interface Cart {
+  items: CartItem[];
+  couponCode: string | null;
+  discount: number;
+}
